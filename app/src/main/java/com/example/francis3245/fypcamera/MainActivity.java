@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
+    //123
     static final int REQUEST_IMAGE_CAPTURE = 1;
     ImageView cameraimageview;
 
