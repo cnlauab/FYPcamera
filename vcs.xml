@@ -6,6 +6,10 @@
           <option name="url" value="https://github.com/francis3245/FYPcamera.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="http://github.com" />
+          <option name="userName" value="leung-chi-chung" />
+        </UrlAndUserName>
       </list>
     </option>
     <option name="cloneParentDir" value="C:\Users\johnl\AndroidStudioProjects" />
