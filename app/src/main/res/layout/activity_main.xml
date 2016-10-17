@@ -29,7 +29,14 @@
         android:minHeight="300dp"
         android:minWidth="300dp"
         android:layout_marginTop="16dp"
-        android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="Test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView2" />
 
 </RelativeLayout>
