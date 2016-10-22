@@ -1,6 +1,7 @@
 package com.example.francis3245.fypcamera;
 
 import android.annotation.SuppressLint;
+import android.os.Environment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         return getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY);
     }
 
+
+
     public void launchCamera(View view) {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
@@ -47,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
             Bundle extras = data.getExtras();
             Bitmap photo = (Bitmap) extras.get("data");
             cameraimageview.setImageBitmap(photo);
+            Save savefile = new Save();
+            savefile.saveImage(this, photo);
         }
     }
 }
