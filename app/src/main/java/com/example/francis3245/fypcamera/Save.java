@@ -22,12 +22,12 @@ import android.media.MediaScannerConnection;
 public class Save {
     private Context Thethis;
     private String FolderName = "/FYPphoto";
-    private String FileName = "photo.";
+    private String FileName = "IMAGE_";
+    private String DateTime = getCurrentDateAndTime();
 
     public void saveImage(Context context, Bitmap bitmap){
         Thethis = context;
         String FilePath = Environment.getExternalStorageDirectory().getAbsolutePath() + FolderName;
-        String DateTime = getCurrentDateAndTime();
         File dir = new File(FilePath);
 
         if(!dir.exists()){
@@ -45,8 +45,14 @@ public class Save {
             AbleToSave();
 
         }
-        catch (FileNotFoundException e) {UnableToSave();}
-        catch (IOException e){UnableToSave();}
+        catch (FileNotFoundException e) {
+            //UnableToSave();
+            Toast.makeText(Thethis, "File Not Found Exception", Toast.LENGTH_SHORT).show();
+        }
+        catch (IOException e){
+            //UnableToSave();
+            Toast.makeText(Thethis, "IO Exception", Toast.LENGTH_SHORT).show();
+        }
 
     }
     private void MakeSureFileWasCreatedThenMakeAvabile(File file) {
@@ -75,7 +81,7 @@ public class Save {
     }
 
     private void AbleToSave() {
-        Toast.makeText(Thethis, "Picture Saved", Toast.LENGTH_SHORT).show();
+        Toast.makeText(Thethis, FileName + DateTime + ".jpg is Saved", Toast.LENGTH_SHORT).show();
 
     }
 
