@@ -11,16 +11,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.francis3245.fypcamera.MainActivity">
 
-    <Button
-        android:text="Launch Camera"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="45dp"
-        android:id="@+id/CameraButton"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="launchCamera" />
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,12 +21,29 @@
         android:layout_marginTop="16dp"
         android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:text="Simple system log"
+    <Button
+        android:text="Launch Camera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:id="@+id/CameraButton"
+        android:onClick="launchCamera"
+        android:layout_below="@+id/CameraImageView"
         android:layout_centerHorizontal="true"
-        android:id="@+id/systemlog" />
+        android:layout_marginTop="11dp" />
+
+    <Button
+        android:text="View Gallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ViewGallery"
+        android:layout_below="@+id/CameraButton"
+        android:layout_centerHorizontal="true" />
+    <Button
+        android:text="Upload Photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/UploadPhoto"
+        android:layout_below="@+id/ViewGallery"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
