@@ -1,20 +1,21 @@
 package com.example.francis3245.fypcamera;
 
-import android.annotation.SuppressLint;
-import android.os.Environment;
-import android.support.v7.app.ActionBar;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.MotionEvent;
+import android.util.Log;
 import android.view.View;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.provider.MediaStore;
-import android.support.v7.app.ActionBarActivity;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.kosalgeek.android.photoutil.ImageBase64;
+
+import java.io.FileNotFoundException;
 
 public class MainActivity extends AppCompatActivity {
     //123
@@ -25,8 +26,32 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Button cambutton = (Button) findViewById(R.id.CameraButton);
         cameraimageview = (ImageView) findViewById(R.id.CameraImageView);
+
+        Button viewbutton = (Button) findViewById(R.id.ViewGallery);
+        viewbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, GalleryActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button uploadbutton = (Button) findViewById(R.id.UploadPhoto);
+        /*uploadbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    Bitmap bitmap = ImageLoader.init().from(selectedPhoto).requestSize(1024,1024).getBitmap();
+                    String encodeImage = ImageBase64.encode(bitmap);
+                    Log.d(TAG.encodeImage);
+                }catch (FileNotFoundException e){
+                    Toast.makeText(getApplicationContext(), "FileNotFound Exception", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });*/
 
         if (!hasCamera()) {
             cambutton.setEnabled(false);}
